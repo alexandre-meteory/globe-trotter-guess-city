@@ -20,7 +20,7 @@ const Map = ({ onPinPlaced, correctLocation, clearPins }: MapProps) => {
     if (!mapContainer.current) return;
 
     // Initialize map
-    mapboxgl.accessToken = 'YOUR_MAPBOX_TOKEN'; // User needs to replace this
+    mapboxgl.accessToken = 'pk.eyJ1IjoibGVhcm5pbmd0aGluZ3MxMDEiLCJhIjoiY2tzNXlmODlmMmt3ZDMxbXJyanA1ZnlvayJ9.sMe8qMZdmllrIPo0w84iFA'; // User needs to replace this
     
     map.current = new mapboxgl.Map({
       container: mapContainer.current,
