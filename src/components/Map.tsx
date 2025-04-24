@@ -24,7 +24,7 @@ const Map = ({ onPinPlaced, correctLocation, clearPins }: MapProps) => {
     
     map.current = new mapboxgl.Map({
       container: mapContainer.current,
-      style: 'mapbox://styles/mapbox/light-v10',
+      style: 'mapbox://styles/mapbox/outdoors-v12',
       zoom: 2,
       center: [0, 20],
     });
