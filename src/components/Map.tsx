@@ -29,6 +29,19 @@ const Map = ({ onPinPlaced, correctLocation, clearPins }: MapProps) => {
       center: [0, 20],
     });
 
+    map.current.on('style.load', () => {
+      const layers = map.current.getStyle().layers;
+      
+      layers.forEach(layer => {
+        if (
+          layer.type === 'symbol' || 
+          (layer.layout && layer.layout['text-field'])
+        ) {
+          map.current.removeLayer(layer.id);
+        }
+      });
+    });
+
     // Add navigation controls
     map.current.addControl(new mapboxgl.NavigationControl(), 'top-right');
 
