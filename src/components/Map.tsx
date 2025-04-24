@@ -27,6 +27,7 @@ const Map = ({ onPinPlaced, correctLocation, clearPins }: MapProps) => {
       style: 'mapbox://styles/mapbox/outdoors-v12',
       zoom: 2,
       center: [0, 20],
+      maxZoom: 3,
     });
 
     map.current.on('style.load', () => {
