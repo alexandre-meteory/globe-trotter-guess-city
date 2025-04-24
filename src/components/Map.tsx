@@ -31,13 +31,25 @@ const Map = ({ onPinPlaced, correctLocation, clearPins }: MapProps) => {
 
     map.current.on('style.load', () => {
       const layers = map.current.getStyle().layers;
-      
+    
       layers.forEach(layer => {
+        const id = layer.id;
+    
+        // Remove all non-terrain-related layers
         if (
-          layer.type === 'symbol' || 
-          (layer.layout && layer.layout['text-field'])
+          ['symbol', 'line', 'fill-extrusion', 'background'].includes(layer.type) ||
+          id.includes('label') ||
+          id.includes('road') ||
+          id.includes('place') ||
+          id.includes('poi') ||
+          id.includes('building') ||
+          id.includes('bridge') ||
+          id.includes('tunnel') ||
+          id.includes('admin') ||
+          id.includes('country') ||
+          id.includes('state')
         ) {
-          map.current.removeLayer(layer.id);
+          map.current.removeLayer(id);
         }
       });
     });
